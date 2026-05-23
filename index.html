@@ -520,6 +520,85 @@ a { color: inherit; text-decoration: none; }
   .gallery-masonry { columns: 1; }
   .process-grid { grid-template-columns: 1fr; }
 }
+  .process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.process-card {
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.process-number {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  opacity: 0.5;
+  line-height: 1;
+}
+
+.process-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+}
+
+.process-desc {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.process-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-md);
+}
+
+.process-links li {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.process-links a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.process-links a:hover {
+  text-decoration: underline;
+}
+
+.process-cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-divider);
+}
+
+.process-cta p {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  max-width: 50ch;
+}
+
 </style>
 </head>
 <body>
@@ -771,47 +850,52 @@ a { color: inherit; text-decoration: none; }
 </div>
 
 <!-- PROCESO -->
-<section class="section process-section" id="proceso">
+<section id="proceso" class="section">
   <div class="container">
-    <div class="section-header fade-in">
-      <p class="section-kicker">¿Cómo funciona?</p>
-      <h2 class="section-title">Del diseño a tus manos</h2>
-      <p class="section-subtitle">Un proceso sencillo y transparente. Tú describes la idea, nosotros la cruzamos al mundo físico.</p>
+    <div class="section-header">
+      <h2 class="section-title">¿Cómo conseguir tu figura?</h2>
+      <p class="section-subtitle">Tres formas de encargar tu impresión. Tú eliges cómo quieres hacerlo.</p>
     </div>
+
     <div class="process-grid">
-      <div class="process-step fade-in">
+
+      <div class="process-card fade-in">
         <div class="process-number">01</div>
-        <h3 class="process-title">Consulta</h3>
-        <p class="process-desc">Cuéntanos tu idea. Aporta referencias, medidas y el uso que le darás a la pieza. Respondemos en menos de 24 horas.</p>
+        <h3 class="process-title">Encuentra el modelo tú mismo</h3>
+        <p class="process-desc">Busca el modelo que quieres en cualquiera de estas plataformas y envíame el enlace o el archivo directamente:</p>
+        <ul class="process-links">
+          <li><a href="https://makerworld.com" target="_blank" rel="noopener noreferrer">MakerWorld</a> — la plataforma de Bambu Lab, con miles de modelos optimizados para impresión</li>
+          <li><a href="https://www.thingiverse.com" target="_blank" rel="noopener noreferrer">Thingiverse</a> — una de las más grandes y veteranas, con millones de diseños gratuitos</li>
+          <li><a href="https://www.printables.com" target="_blank" rel="noopener noreferrer">Printables</a> — plataforma de Prusa, con modelos de alta calidad y comunidad muy activa</li>
+          <li><a href="https://cults3d.com" target="_blank" rel="noopener noreferrer">Cults3D</a> — modelos gratuitos y de pago, con mucho contenido de diseñadores independientes</li>
+        </ul>
+        <p class="process-desc">Me envías el enlace o el archivo STL y yo me encargo del resto.</p>
       </div>
-      <div class="process-step fade-in">
+
+      <div class="process-card fade-in">
         <div class="process-number">02</div>
-        <h3 class="process-title">Presupuesto</h3>
-        <p class="process-desc">Te enviamos un presupuesto detallado sin compromisos. Precio final, tiempo de entrega y material recomendado.</p>
+        <h3 class="process-title">Yo hago la búsqueda por ti</h3>
+        <p class="process-desc">Si no sabes dónde buscar o no encuentras lo que quieres, dime qué personaje, objeto o pieza necesitas y yo localizo el mejor modelo disponible entre todas las plataformas.</p>
+        <p class="process-desc">Te muestro las opciones, elegimos juntos y lo imprimimos.</p>
       </div>
-      <div class="process-step fade-in">
+
+      <div class="process-card fade-in">
         <div class="process-number">03</div>
-        <h3 class="process-title">Diseño</h3>
-        <p class="process-desc">Si necesitas modelado 3D, lo realizamos desde cero. Si ya tienes el archivo, lo revisamos y optimizamos para imprimir.</p>
+        <h3 class="process-title">Diseño personalizado desde cero</h3>
+        <p class="process-desc">Si lo que quieres no existe o necesitas algo completamente a medida, creo el modelo 3D desde cero adaptado a tus especificaciones: medidas, detalles, acabado y material.</p>
+        <p class="process-desc">Ideal para regalos únicos, piezas funcionales o cualquier idea que tengas en mente.</p>
       </div>
-      <div class="process-step fade-in">
-        <div class="process-number">04</div>
-        <h3 class="process-title">Impresión</h3>
-        <p class="process-desc">Producción con filamentos y resinas de calidad. Control de calidad en cada capa. Te enviamos fotos del proceso.</p>
-      </div>
-      <div class="process-step fade-in">
-        <div class="process-number">05</div>
-        <h3 class="process-title">Acabado</h3>
-        <p class="process-desc">Lijado, pintado, barnizado o ensamblado según tus necesidades. Postprocesado profesional para un acabado impecable.</p>
-      </div>
-      <div class="process-step fade-in">
-        <div class="process-number">06</div>
-        <h3 class="process-title">Entrega</h3>
-        <p class="process-desc">Embalaje seguro y envío a toda España. Recogida en mano disponible en Sant Quirze del Vallès.</p>
-      </div>
+
     </div>
+
+    <div class="process-cta fade-in">
+      <p>¿No sabes por dónde empezar? Escríbeme y te ayudo a encontrar la mejor opción.</p>
+      <a href="#contacto" class="btn btn-primary">Contactar</a>
+    </div>
+
   </div>
 </section>
+
 
 <!-- CONTACTO -->
 <section class="section contact-section" id="contacto">
