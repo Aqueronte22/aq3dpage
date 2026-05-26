@@ -15,6 +15,112 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
+/* ===== CONTACT FORM ===== */ 
+  .contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contact-info-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.08);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: background var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+
+.contact-info-card:hover {
+  background: var(--color-surface-2);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-info-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-highlight);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.contact-info-label {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-info-value {
+  display: block;
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px oklch(from var(--color-primary) l c h / 0.15);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
 /* ===== DESIGN TOKENS ===== */
 :root {
   --font-display: 'Boska', 'Georgia', serif;
@@ -601,6 +707,7 @@ a { color: inherit; text-decoration: none; }
 
 </style>
 </head>
+  
 <body>
 
 <!-- SKIP LINK -->
@@ -925,7 +1032,7 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div>
       <div class="contact-form fade-in">
-        <form id="contactForm" novalidate>
+        <form id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="nombre">Nombre *</label>
@@ -977,7 +1084,84 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 </section>
+<section id="contacto" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-subtitle">¿Tienes alguna duda o quieres hacer un encargo? Escríbeme por cualquiera de estas vías.</p>
+    </div>
 
+    <div class="contact-wrapper">
+
+      <div class="contact-left">
+        <div class="contact-info-cards">
+
+          <a href="mailto:info@aq3d.es" class="contact-info-card">
+            <div class="contact-info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </div>
+            <div class="contact-info-body">
+              <span class="contact-info-label">Email</span>
+              <span class="contact-info-value">info@aq3d.es</span>
+            </div>
+          </a>
+
+          <a href="https://wa.me/34617848366" target="_blank" rel="noopener noreferrer" class="contact-info-card">
+            <div class="contact-info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+              </svg>
+            </div>
+            <div class="contact-info-body">
+              <span class="contact-info-label">WhatsApp</span>
+              <span class="contact-info-value">617 848 366</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <form id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria">
+              <option value="">Selecciona una categoría</option>
+              <option value="anime">Anime</option>
+              <option value="peliculas">Películas</option>
+              <option value="videojuegos">Videojuegos</option>
+              <option value="mesa">Juegos de mesa</option>
+              <option value="libros">Libros</option>
+              <option value="hogar">Hogar</option>
+              <option value="imagen3d">Imagen a 3D</option>
+              <option value="personalizado">Diseños personalizados</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame qué necesitas..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+          <p id="form-success" style="display:none; color: var(--color-primary); margin-top: var(--space-4); font-weight: 600;">✓ Mensaje enviado correctamente. Te responderé pronto.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+  
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -1098,19 +1282,18 @@ document.addEventListener('keydown', e => {
 });
 
 // === CONTACT FORM ===
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const nombre = document.getElementById('nombre').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const mensaje = document.getElementById('mensaje').value.trim();
-  if (!nombre || !email || !mensaje) {
-    alert('Por favor, rellena los campos obligatorios (*)');
-    return;
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.reset();
+        document.getElementById('form-success').style.display = 'block';
+      }
+    });
   }
-  this.style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-});
-
 // === SMOOTH NAV ACTIVE ===
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -1124,6 +1307,8 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 sections.forEach(s => observer.observe(s));
+  // === SMOOTH NAV ACTIVE ===
+
 </script>
 </body>
 </html>
