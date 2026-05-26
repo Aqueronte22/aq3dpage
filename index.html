@@ -133,56 +133,7 @@
     grid-template-columns: 1fr;
   }
 }
-
-.contact-info-cards {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.contact-info-card {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  padding: var(--space-4) var(--space-5);
-  background: var(--color-surface);
-  border: 1px solid oklch(from var(--color-text) l c h / 0.08);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  color: var(--color-text);
-  transition: background var(--transition-interactive), box-shadow var(--transition-interactive);
-}
-
-.contact-info-card:hover {
-  background: var(--color-surface-2);
-  box-shadow: var(--shadow-md);
-}
-
-.contact-info-icon {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-primary-highlight);
-  color: var(--color-primary);
-  border-radius: var(--radius-md);
-  flex-shrink: 0;
-}
-
-.contact-info-label {
-  display: block;
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.contact-info-value {
-  display: block;
-  font-size: var(--text-base);
-  font-weight: 600;
-}
+  
 
 .contact-form {
   display: flex;
